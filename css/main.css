@@ -3021,7 +3021,7 @@ input, select, textarea {
 				-webkit-transition: opacity 1s ease;
 				-ms-transition: opacity 1s ease;
 				transition: opacity 1s ease;
-				background: rgba(49, 36, 80, 0.9);
+				background: transparent;
 				content: '';
 				display: block;
 				height: 100%;
@@ -3072,7 +3072,7 @@ input, select, textarea {
 
 		.spotlights > section.inactive > .image:before,
 		body.is-preload .spotlights > section > .image:before {
-			opacity: 1;
+			opacity: 0;
 		}
 
 		.spotlights > section.inactive > .content > .inner,
@@ -3909,33 +3909,27 @@ input, select, textarea {
 
 		/* Custom Contact Section Styling */
 		.contact-container {
-			max-width: 1000px;
+			max-width: 800px;
 			margin: 0 auto;
 		}
 
-		.contact-grid {
-			display: grid;
-			grid-template-columns: 1fr;
-			gap: 1.5rem;
-			margin-bottom: 3rem;
+		.contact-card {
+			background: rgba(255, 255, 255, 0.05);
+			border-radius: 15px;
+			border: 1px solid rgba(255, 255, 255, 0.1);
+			padding: 3rem;
+			backdrop-filter: blur(10px);
 		}
 
 		.contact-item {
 			display: flex;
 			align-items: center;
-			padding: 1.5rem 2rem;
-			background: rgba(255, 255, 255, 0.05);
-			border-radius: 10px;
-			border: 1px solid rgba(255, 255, 255, 0.1);
-			transition: all 0.3s ease;
-			backdrop-filter: blur(10px);
+			padding: 1.5rem 0;
+			border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 		}
 
-		.contact-item:hover {
-			transform: translateY(-3px);
-			background: rgba(255, 255, 255, 0.1);
-			border-color: rgba(255, 255, 255, 0.2);
-			box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+		.contact-item:last-of-type {
+			border-bottom: none;
 		}
 
 		.contact-icon {
@@ -3979,12 +3973,15 @@ input, select, textarea {
 			border-bottom-color: #ffffff;
 		}
 
+		.contact-divider {
+			height: 1px;
+			background: rgba(255, 255, 255, 0.1);
+			margin: 2rem 0;
+		}
+
 		.social-links {
 			text-align: center;
-			padding: 2rem;
-			background: rgba(255, 255, 255, 0.03);
-			border-radius: 15px;
-			border: 1px solid rgba(255, 255, 255, 0.1);
+			padding: 1.5rem 0 0 0;
 		}
 
 		.social-links h3 {
@@ -4029,10 +4026,14 @@ input, select, textarea {
 
 		/* Responsive Design for Contact Section */
 		@media screen and (max-width: 768px) {
+			.contact-card {
+				padding: 2rem 1.5rem;
+			}
+
 			.contact-item {
 				flex-direction: column;
 				text-align: center;
-				padding: 1.5rem 1rem;
+				padding: 1.5rem 0;
 			}
 
 			.contact-icon {
